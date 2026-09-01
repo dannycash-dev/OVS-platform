@@ -1,0 +1,13 @@
+[
+  {
+    "name": "OrthoOrder settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "workspace_label",
+        "label": "Workspace label",
+        "default": "Clinical workspace"
+      }
+    ]
+  }
+]

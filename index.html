@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f0e9" />
+    <title>OrthoOrder | Fracture planning workspace</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portal.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand-mark"><span>O</span><div><strong>Ortho</strong><small>ORDER</small></div></div>
+        <div class="workspace-label">CLINICAL WORKSPACE</div>
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="workspace"><span class="nav-icon">＋</span>New case</button>
+          <button class="nav-item" data-view="cases"><span class="nav-icon">▤</span>Case archive <em>12</em></button>
+          <button class="nav-item" data-view="inventory"><span class="nav-icon">⌕</span>Hardware library</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-status"><span></span><div><b>AI service online</b><small>Last checked just now</small></div></div>
+          <button class="nav-item quiet"><span class="nav-icon">⚙</span>Account settings</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" aria-label="Open navigation">☰</button>
+          <div class="breadcrumbs"><span>Willow Creek Vet</span><b>/</b><strong>Fracture planning</strong></div>
+          <div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧<i></i></button><button class="profile-btn"><span>MC</span><b>Dr. Maya Chen</b><small>Willow Creek Vet</small><strong>⌄</strong></button></div>
+        </header>
+
+        <div id="workspace-view" class="view active-view">
+          <section class="page-heading workspace-heading"><div><div class="eyebrow">NEW CASE · STEP 01 OF 03</div><h1>Plan the repair<br /><em>with better context.</em></h1><p>Upload radiographs and let OrthoOrder surface a hardware starting point for your review.</p></div><div class="case-id"><small>CASE ID</small><b>OO-260827-04</b><span>Draft · autosaved</span></div></section>
+          <div class="workspace-grid"><section class="upload-panel"><div class="panel-title"><div><span class="step-number">01</span><div><h2>Radiographs</h2><p>Upload clear AP, lateral, or oblique views.</p></div></div><span class="secure-tag">⌁ HIPAA-READY</span></div><label class="dropzone" id="dropzone"><input id="xray-input" type="file" accept="image/*,.dcm" hidden /><div class="upload-icon">↥</div><b>Drop images here or <u>browse files</u></b><small>PNG, JPG, or DICOM · up to 50 MB each</small></label><div id="file-list" class="file-list"></div><div class="upload-foot"><span>⌁ Files are encrypted in transit</span><button class="text-btn" id="sample-btn">Load sample case →</button></div></section><section class="details-panel"><div class="panel-title"><div><span class="step-number">02</span><div><h2>Case context</h2><p>Help the model interpret the image.</p></div></div></div><div class="form-grid"><label>Patient reference<input id="patient-name" placeholder="e.g. Maple · 00482" /></label><label>Species<select id="species"><option>Canine</option><option>Feline</option></select></label><label>Weight (kg)<input id="weight" type="number" placeholder="e.g. 22" /></label><label>Study view<select id="view-type"><option>Multiple views</option><option>AP</option><option>Lateral</option><option>Oblique</option></select></label></div><label class="full-label">Clinical notes<textarea id="clinical-notes" rows="3" placeholder="Mechanism, open/closed, time since injury, relevant findings..."></textarea></label><button class="primary-btn full assess-btn" id="assess-btn" disabled>Assess fracture <span>→</span></button></section></div>
+          <section class="assessment-panel" id="assessment-panel"><div class="assessment-empty"><span class="ai-mark">✦</span><div><h2>AI assessment will appear here</h2><p>Upload at least one radiograph to generate a structured review.</p></div><span class="review-note">Clinician review required</span></div></section>
+        </div>
+
+        <div id="cases-view" class="view"><section class="page-heading compact"><div><div class="eyebrow">CASE ARCHIVE</div><h1>Recent planning work.</h1><p>Return to a case or review a previous recommendation.</p></div><button class="primary-btn" data-view="workspace">＋ New case</button></section><div class="cases-panel"><div class="case-row"><div class="case-thumb bone-thumb">R</div><div><b>Maple · Radius / ulna</b><small>Updated today · OO-260827-04</small></div><span class="status draft">Draft</span><button class="text-btn">Open →</button></div><div class="case-row"><div class="case-thumb">T</div><div><b>Rufus · Tibial plateau</b><small>21 Aug 2026 · OO-260821-18</small></div><span class="status ready">Reviewed</span><button class="text-btn">Open →</button></div></div></div>
+        <div id="inventory-view" class="view"><section class="page-heading compact"><div><div class="eyebrow">HARDWARE LIBRARY</div><h1>Procedure-ready hardware.</h1><p>Browse compatible implants and add them to a request for clinician review.</p></div></section><div class="catalog-layout"><div class="results-area"><section class="search-row"><label class="search-field"><span>⌕</span><input id="search-input" type="search" placeholder="Search product, SKU, procedure..." /></label><label class="sort-field">Sort by <select id="sort-select"><option value="relevance">Relevance</option><option value="stock">Most in stock</option><option value="price-low">Price: low to high</option></select></label></section><section class="quick-filters"><button class="chip active" data-filter="all">All hardware</button><button class="chip" data-filter="plates">Bone plates</button><button class="chip" data-filter="screws">Screws</button><button class="chip" data-filter="pins">Pins & wires</button></section><div class="results-meta"><b id="result-count">Showing 4 products</b></div><div id="product-grid" class="product-grid"></div></div><aside class="order-rail"><div class="rail-heading"><div><span class="eyebrow">YOUR REQUEST</span><h2 id="rail-title">Nothing added yet</h2></div><span class="cart-count" id="cart-count">0</span></div><div id="rail-items" class="rail-items"></div><div class="rail-footer"><div><span>Estimated total</span><b id="rail-total">$0.00</b></div><button class="primary-btn full" id="review-btn" disabled>Review request <span>→</span></button></div></aside></div></div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="detail-modal"><div class="modal detail-modal"><button class="close-btn" data-close>×</button><div id="detail-content"></div></div></div>
+    <div class="modal-backdrop" id="review-modal"><div class="modal review-modal"><button class="close-btn" data-close>×</button><div class="eyebrow">FINAL REVIEW</div><h2>Ready to place this order?</h2><p class="modal-intro">We’ll reserve these items at Northside warehouse and notify your clinic when they’re ready.</p><div id="review-items"></div><div class="review-total"><span>Estimated total</span><b id="review-total">$0.00</b></div><label class="form-label">Patient or case reference <span>Required</span><input id="case-reference" placeholder="e.g. Bailey · TPLO · 21 Aug" /></label><label class="form-label">Fulfillment method<select id="fulfillment"><option>Local pickup · Northside warehouse</option><option>Courier delivery · Tomorrow morning</option></select></label><label class="form-label">Note for the warehouse <span>Optional</span><textarea id="order-note" rows="3" placeholder="Anything our team should know?"></textarea></label><button class="primary-btn full" id="submit-order">Place order <span>→</span></button><p class="terms">By placing this order, you confirm the selected hardware is appropriate for your procedure.</p></div></div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="portal.js"></script>
+  </body>
+</html>
