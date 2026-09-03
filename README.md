@@ -1,4 +1,4 @@
-# OVS-platform
+# Ortho Vet Supplies
 
 A fracture-planning storefront prototype for veterinarian surgeons ordering orthopedic hardware.
 

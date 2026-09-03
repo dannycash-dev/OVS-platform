@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f4f0e9" />
-    <title>OrthoOrder | Fracture planning workspace</title>
+    <title>Ortho Vet Supplies | Fracture planning workspace</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="portal.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar" aria-label="Primary navigation">
-        <div class="brand-mark"><span>O</span><div><strong>Ortho</strong><small>ORDER</small></div></div>
+        <div class="brand-mark"><span>OVS</span><div><strong>Ortho Vet</strong><small>SUPPLIES</small></div></div>
         <div class="workspace-label">CLINICAL WORKSPACE</div>
         <nav class="nav-list">
           <button class="nav-item active" data-view="workspace"><span class="nav-icon">＋</span>New case</button>
@@ -32,7 +32,7 @@
         </header>
 
         <div id="workspace-view" class="view active-view">
-          <section class="page-heading workspace-heading"><div><div class="eyebrow">NEW CASE · STEP 01 OF 03</div><h1>Plan the repair<br /><em>with better context.</em></h1><p>Upload radiographs and let OrthoOrder surface a hardware starting point for your review.</p></div><div class="case-id"><small>CASE ID</small><b>OO-260827-04</b><span>Draft · autosaved</span></div></section>
+          <section class="page-heading workspace-heading"><div><div class="eyebrow">NEW CASE · STEP 01 OF 03</div><h1>Plan the repair<br /><em>with better context.</em></h1><p>Upload radiographs and let Ortho Vet Supplies surface a hardware starting point for your review.</p></div><div class="case-id"><small>CASE ID</small><b>OO-260827-04</b><span>Draft · autosaved</span></div></section>
           <div class="workspace-grid"><section class="upload-panel"><div class="panel-title"><div><span class="step-number">01</span><div><h2>Radiographs</h2><p>Upload clear AP, lateral, or oblique views.</p></div></div><span class="secure-tag">⌁ HIPAA-READY</span></div><label class="dropzone" id="dropzone"><input id="xray-input" type="file" accept="image/*,.dcm" hidden /><div class="upload-icon">↥</div><b>Drop images here or <u>browse files</u></b><small>PNG, JPG, or DICOM · up to 50 MB each</small></label><div id="file-list" class="file-list"></div><div class="upload-foot"><span>⌁ Files are encrypted in transit</span><button class="text-btn" id="sample-btn">Load sample case →</button></div></section><section class="details-panel"><div class="panel-title"><div><span class="step-number">02</span><div><h2>Case context</h2><p>Help the model interpret the image.</p></div></div></div><div class="form-grid"><label>Patient reference<input id="patient-name" placeholder="e.g. Maple · 00482" /></label><label>Species<select id="species"><option>Canine</option><option>Feline</option></select></label><label>Weight (kg)<input id="weight" type="number" placeholder="e.g. 22" /></label><label>Study view<select id="view-type"><option>Multiple views</option><option>AP</option><option>Lateral</option><option>Oblique</option></select></label></div><label class="full-label">Clinical notes<textarea id="clinical-notes" rows="3" placeholder="Mechanism, open/closed, time since injury, relevant findings..."></textarea></label><button class="primary-btn full assess-btn" id="assess-btn" disabled>Assess fracture <span>→</span></button></section></div>
           <section class="assessment-panel" id="assessment-panel"><div class="assessment-empty"><span class="ai-mark">✦</span><div><h2>AI assessment will appear here</h2><p>Upload at least one radiograph to generate a structured review.</p></div><span class="review-note">Clinician review required</span></div></section>
         </div>

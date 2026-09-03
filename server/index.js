@@ -18,4 +18,4 @@ app.get('/api/products', async (_request, response) => {
   }
 });
 
-app.listen(port, () => console.log(`OrthoOrder API listening on port ${port}`));
+app.listen(port, () => console.log(`Ortho Vet Supplies API listening on port ${port}`));
